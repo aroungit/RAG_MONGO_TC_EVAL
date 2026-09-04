@@ -1,0 +1,120 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - button [ref=e6] [cursor=pointer]
+      - generic [ref=e11]: RAG Pipeline
+      - switch [ref=e15] [cursor=pointer]
+    - generic [ref=e19]:
+      - navigation [ref=e20]:
+        - list [ref=e21]:
+          - listitem [ref=e22]:
+            - button "Home" [ref=e23] [cursor=pointer]
+          - listitem [aria-hidden] [ref=e24]
+          - listitem [ref=e27]:
+            - paragraph [ref=e28]: Prompt & Schema
+      - generic [ref=e29]: Configure prompt templates & JSON schemas
+  - generic [ref=e31]:
+    - heading "Navigation" [level=6] [ref=e34]
+    - separator [ref=e35]
+    - list [ref=e36]:
+      - listitem [ref=e37]:
+        - button "Convert to JSON Upload and convert Excel files (Test Cases or User Stories)" [ref=e38] [cursor=pointer]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: Convert to JSON
+            - paragraph [ref=e47]: Upload and convert Excel files (Test Cases or User Stories)
+      - listitem [ref=e48]:
+        - button "Embeddings & Store Create and manage embeddings" [ref=e49] [cursor=pointer]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: Embeddings & Store
+            - paragraph [ref=e58]: Create and manage embeddings
+      - listitem [ref=e59]:
+        - button "Query Preprocessing Transform & expand queries" [ref=e60] [cursor=pointer]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: Query Preprocessing
+            - paragraph [ref=e70]: Transform & expand queries
+      - listitem [ref=e71]:
+        - button "Vector Search Semantic vector search" [ref=e72] [cursor=pointer]:
+          - generic [ref=e79]:
+            - generic [ref=e80]: Vector Search
+            - paragraph [ref=e81]: Semantic vector search
+      - listitem [ref=e82]:
+        - button "BM25 Search Keyword-based search" [ref=e83] [cursor=pointer]:
+          - generic [ref=e90]:
+            - generic [ref=e91]: BM25 Search
+            - paragraph [ref=e92]: Keyword-based search
+      - listitem [ref=e93]:
+        - button "Hybrid Search Combined BM25 + Vector" [ref=e94] [cursor=pointer]:
+          - generic [ref=e101]:
+            - generic [ref=e102]: Hybrid Search
+            - paragraph [ref=e103]: Combined BM25 + Vector
+      - listitem [ref=e104]:
+        - button "Score Fusion BM25+Vector fusion reranking" [ref=e105] [cursor=pointer]:
+          - generic [ref=e112]:
+            - generic [ref=e113]: Score Fusion
+            - paragraph [ref=e114]: BM25+Vector fusion reranking
+      - listitem [ref=e115]:
+        - button "Summarize & Dedup AI summarization & deduplication" [ref=e116] [cursor=pointer]:
+          - generic [ref=e123]:
+            - generic [ref=e124]: Summarize & Dedup
+            - paragraph [ref=e125]: AI summarization & deduplication
+      - listitem [ref=e126]:
+        - button "Prompt & Schema Configure prompt templates & JSON schemas" [ref=e127] [cursor=pointer]:
+          - generic [ref=e134]:
+            - generic [ref=e135]: Prompt & Schema
+            - paragraph [ref=e136]: Configure prompt templates & JSON schemas
+      - listitem [ref=e137]:
+        - button "Settings Configure environment" [ref=e138] [cursor=pointer]:
+          - generic [ref=e145]:
+            - generic [ref=e146]: Settings
+            - paragraph [ref=e147]: Configure environment
+    - separator [ref=e148]
+    - generic [ref=e149]: RAG Demo v1.2Enterprise Edition
+  - main [ref=e153]:
+    - generic [ref=e311]:
+      - generic [ref=e312]:
+        - heading "Prompt Template & JSON Schema Manager" [level=4] [ref=e313]
+        - paragraph [ref=e316]: Configure and test AI prompt templates and JSON schemas for healthcare test cases
+        - alert [ref=e317]:
+          - paragraph [ref=e322]:
+            - strong [ref=e323]: "🎯 ICEPOT Framework Enabled:"
+            - text: "This manager now uses the ICEPOT methodology for structured prompt engineering:"
+            - strong [ref=e324]: I
+            - text: nstruction,
+            - strong [ref=e325]: C
+            - text: ontext,
+            - strong [ref=e326]: E
+            - text: xamples,
+            - strong [ref=e327]: P
+            - text: ersona,
+            - strong [ref=e328]: O
+            - text: utput,
+            - strong [ref=e329]: T
+            - text: one
+      - generic [ref=e330]:
+        - tablist [ref=e333]:
+          - tab "JSON Schema" [ref=e334] [cursor=pointer]
+          - tab "Prompt Template" [ref=e337] [cursor=pointer]
+          - tab "Test & Preview" [selected] [ref=e340] [cursor=pointer]
+          - tab "Metrics Evaluation" [ref=e343] [cursor=pointer]
+        - separator [ref=e347]
+        - generic [ref=e359]:
+          - heading "Test Prompt Template" [level=6] [ref=e360]
+          - paragraph [ref=e361]: Test your prompt template with sample data to see how the AI responds
+          - generic [ref=e362]:
+            - generic [ref=e364]:
+              - generic [ref=e365]: Test Query / User Story
+              - generic [ref=e366]:
+                - textbox "Test Query / User Story" [ref=e367]:
+                  - /placeholder: Enter a user story or query to test...
+                  - text: "Module: Patient Communication & Diagnostics User Story ID: HC-125 User Story Title: Share Diagnostic Reports with Patients via WhatsApp User Story Description: As a diagnostic technician, I want to automatically send patients their lab test reports securely through WhatsApp once results are validated, so that patients can access their diagnostic data conveniently without logging into the hospital portal. Acceptance Criteria: 1. Report must be sent only after validation by authorized technician 2. WhatsApp message must include secure download link with expiration (24 hours) 3. Patient consent for WhatsApp communication must be verified 4. System must log all report delivery attempts 5. Support for PDF format with encryption 6. Handle failure scenarios (invalid number, WhatsApp service down) 7. Comply with HIPAA requirements for PHI transmission"
+                - group [aria-hidden]:
+                  - generic: Test Query / User Story
+            - generic [ref=e369]:
+              - generic [ref=e370]: Sample Test Cases (JSON)
+              - generic [ref=e371]:
+                - textbox "Sample Test Cases (JSON)" [ref=e372]: "[ { \"testCaseId\": \"TC_305\", \"module\": \"Laboratory\", \"testCaseTitle\": \"Lab Report Email Notification - Validated Results\", \"testCaseDescription\": \"Verify that the system sends email notification to patients when lab test results are validated and marked as complete by the technician.\", \"testSteps\": [ \"1. Technician logs into Laboratory module\", \"2. Select pending test for Patient UHID: 123456-7890\", \"3. Enter test results in result_values field\", \"4. Click 'Validate Results' button\", \"5. System marks test status as 'VALIDATED'\", \"6. Verify email sent to patient registered email\", \"7. Verify notification logged in patient_notifications table\" ], \"expectedResults\": \"Email sent successfully with subject 'Lab Report Ready - [Test Name]', patient_notifications table updated with timestamp and delivery status, test status changed to VALIDATED in lab_tests table\", \"priority\": \"P1 (Critical)\", \"testType\": \"Integration\", \"linkedUserStories\": [\"HC-098\"], \"complianceNotes\": \"HIPAA - Email must be encrypted, link expires in 48 hours\" }, { \"testCaseId\": \"TC_306\", \"module\": \"Patient Communication\", \"testCaseTitle\": \"SMS Notification - Appointment Reminder\", \"testCaseDescription\": \"Verify system sends SMS reminder to patient 24 hours before scheduled appointment with proper formatting and delivery tracking.\", \"testSteps\": [ \"1. Schedule appointment for patient (UHID: 123456-7890) for tomorrow 10:00 AM\", \"2. Wait for scheduled SMS trigger (24 hours before appointment)\", \"3. Verify SMS content includes: Patient name, Doctor name, Date, Time, Location\", \"4. Verify SMS sent to registered mobile: +91-9876543210\", \"5. Check sms_logs table for delivery status\" ], \"expectedResults\": \"SMS delivered successfully with message: 'Dear [Patient], Appointment with Dr. [Name] scheduled for [Date] at [Time]. Location: [Building]. Call 1800-XXX for changes.' Delivery status logged as 'SENT' in sms_logs table.\", \"priority\": \"P2 (High)\", \"testType\": \"Integration\", \"linkedUserStories\": [\"HC-102\"], \"complianceNotes\": \"Ensure patient opted-in for SMS notifications\" }, { \"testCaseId\": \"TC_308\", \"module\": \"Diagnostics\", \"testCaseTitle\": \"Report Generation - PDF Format with Patient Data\", \"testCaseDescription\": \"Verify diagnostic report is generated in PDF format with complete patient demographics, test results, reference ranges, and technician signature.\", \"testSteps\": [ \"1. Navigate to Diagnostics Report Generation module\", \"2. Select validated test for Patient UHID: 123456-7890\", \"3. Click 'Generate PDF Report' button\", \"4. System retrieves patient demographics from patient_master\", \"5. System formats test results with reference ranges\", \"6. System adds digital signature of validating technician\", \"7. PDF saved to reports/ directory with naming: UHID_TestType_Date.pdf\" ], \"expectedResults\": \"PDF generated successfully with sections: Patient Demographics (Name, UHID, Age, Gender), Test Details (Test Name, Sample ID, Collection Date), Results Table (Parameter, Value, Reference Range, Units), Technician Signature (Name, License, Date). File size < 5MB. PDF is password-protected with patient DOB.\", \"priority\": \"P1 (Critical)\", \"testType\": \"Functional\", \"linkedUserStories\": [\"HC-087\"], \"complianceNotes\": \"HIPAA - PDF encryption mandatory, watermark 'CONFIDENTIAL'\" }, { \"testCaseId\": \"TC_310\", \"module\": \"Patient Communication\", \"testCaseTitle\": \"WhatsApp Message - Delivery Status Tracking\", \"testCaseDescription\": \"Verify system tracks WhatsApp message delivery status (sent, delivered, read) and logs all status changes for audit purposes.\", \"testSteps\": [ \"1. Trigger WhatsApp notification for patient (UHID: 123456-7890)\", \"2. System sends message via WhatsApp Business API\", \"3. Monitor webhook for delivery status updates\", \"4. Verify status transitions: SENT → DELIVERED → READ\", \"5. Check whatsapp_logs table for status history\", \"6. Verify timestamp recorded for each status change\" ], \"expectedResults\": \"All status transitions logged in whatsapp_logs table with columns: message_id, uhid, status (SENT/DELIVERED/READ/FAILED), timestamp, error_code (if failed). Dashboard shows real-time delivery status. Failed messages flagged for retry.\", \"priority\": \"P2 (High)\", \"testType\": \"Integration\", \"linkedUserStories\": [\"HC-125\"], \"complianceNotes\": \"Retain delivery logs for 7 years per HIPAA audit requirements\" }, { \"testCaseId\": \"TC_311\", \"module\": \"Security\", \"testCaseTitle\": \"Patient Consent Verification - WhatsApp Communication\", \"testCaseDescription\": \"Verify system checks patient consent status before sending WhatsApp messages and blocks communication if consent not granted.\", \"testSteps\": [ \"1. Navigate to Patient Registration module\", \"2. Create/Select patient record (UHID: 123456-7890)\", \"3. Verify consent_whatsapp flag is set to FALSE in patient_consent table\", \"4. Attempt to trigger WhatsApp notification for lab report\", \"5. Verify system blocks message sending\", \"6. Verify error logged: 'Patient consent not granted for WhatsApp communication'\" ], \"expectedResults\": \"WhatsApp message not sent. Error message displayed to technician: 'Patient has not consented to WhatsApp communication. Use alternative methods.' Event logged in audit_logs with reason: NO_CONSENT. Patient record shows alternative communication preferences.\", \"priority\": \"P1 (Critical)\", \"testType\": \"Functional - Security\", \"linkedUserStories\": [\"HC-125\"], \"complianceNotes\": \"HIPAA - Explicit patient consent required before PHI transmission via third-party platforms\" } ]"
+                - group [aria-hidden]:
+                  - generic: Sample Test Cases (JSON)
+            - generic [ref=e374]:
+              - button "Running Complete Pipeline..." [disabled]
+              - button [ref=e380] [cursor=pointer]

@@ -1,0 +1,127 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - button [ref=e6] [cursor=pointer]
+      - generic [ref=e11]: RAG Pipeline
+      - switch [ref=e15] [cursor=pointer]
+    - generic [ref=e19]:
+      - navigation [ref=e20]:
+        - list [ref=e21]:
+          - listitem [ref=e22]:
+            - button "Home" [ref=e23] [cursor=pointer]
+          - listitem [aria-hidden] [ref=e24]
+          - listitem [ref=e27]:
+            - paragraph [ref=e28]: Prompt & Schema
+      - generic [ref=e29]: Configure prompt templates & JSON schemas
+  - generic [ref=e387]:
+    - heading "Navigation" [level=6] [ref=e390]
+    - separator [ref=e391]
+    - list [ref=e392]:
+      - listitem [ref=e393]:
+        - button "Convert to JSON Upload and convert Excel files (Test Cases or User Stories)" [ref=e394] [cursor=pointer]:
+          - generic [ref=e401]:
+            - generic [ref=e402]: Convert to JSON
+            - paragraph [ref=e403]: Upload and convert Excel files (Test Cases or User Stories)
+      - listitem [ref=e404]:
+        - button "Embeddings & Store Create and manage embeddings" [ref=e405] [cursor=pointer]:
+          - generic [ref=e412]:
+            - generic [ref=e413]: Embeddings & Store
+            - paragraph [ref=e414]: Create and manage embeddings
+      - listitem [ref=e415]:
+        - button "Query Preprocessing Transform & expand queries" [ref=e416] [cursor=pointer]:
+          - generic [ref=e424]:
+            - generic [ref=e425]: Query Preprocessing
+            - paragraph [ref=e426]: Transform & expand queries
+      - listitem [ref=e427]:
+        - button "Vector Search Semantic vector search" [ref=e428] [cursor=pointer]:
+          - generic [ref=e435]:
+            - generic [ref=e436]: Vector Search
+            - paragraph [ref=e437]: Semantic vector search
+      - listitem [ref=e438]:
+        - button "BM25 Search Keyword-based search" [ref=e439] [cursor=pointer]:
+          - generic [ref=e446]:
+            - generic [ref=e447]: BM25 Search
+            - paragraph [ref=e448]: Keyword-based search
+      - listitem [ref=e449]:
+        - button "Hybrid Search Combined BM25 + Vector" [ref=e450] [cursor=pointer]:
+          - generic [ref=e457]:
+            - generic [ref=e458]: Hybrid Search
+            - paragraph [ref=e459]: Combined BM25 + Vector
+      - listitem [ref=e460]:
+        - button "Score Fusion BM25+Vector fusion reranking" [ref=e461] [cursor=pointer]:
+          - generic [ref=e468]:
+            - generic [ref=e469]: Score Fusion
+            - paragraph [ref=e470]: BM25+Vector fusion reranking
+      - listitem [ref=e471]:
+        - button "Summarize & Dedup AI summarization & deduplication" [ref=e472] [cursor=pointer]:
+          - generic [ref=e479]:
+            - generic [ref=e480]: Summarize & Dedup
+            - paragraph [ref=e481]: AI summarization & deduplication
+      - listitem [ref=e482]:
+        - button "Prompt & Schema Configure prompt templates & JSON schemas" [ref=e483] [cursor=pointer]:
+          - generic [ref=e490]:
+            - generic [ref=e491]: Prompt & Schema
+            - paragraph [ref=e492]: Configure prompt templates & JSON schemas
+      - listitem [ref=e493]:
+        - button "Settings Configure environment" [ref=e494] [cursor=pointer]:
+          - generic [ref=e501]:
+            - generic [ref=e502]: Settings
+            - paragraph [ref=e503]: Configure environment
+    - separator [ref=e504]
+    - generic [ref=e505]: RAG Demo v1.2Enterprise Edition
+  - main [ref=e153]:
+    - generic [ref=e311]:
+      - generic [ref=e312]:
+        - heading "Prompt Template & JSON Schema Manager" [level=4] [ref=e313]
+        - paragraph [ref=e316]: Configure and test AI prompt templates and JSON schemas for healthcare test cases
+        - alert [ref=e317]:
+          - paragraph [ref=e322]:
+            - strong [ref=e323]: "🎯 ICEPOT Framework Enabled:"
+            - text: "This manager now uses the ICEPOT methodology for structured prompt engineering:"
+            - strong [ref=e324]: I
+            - text: nstruction,
+            - strong [ref=e325]: C
+            - text: ontext,
+            - strong [ref=e326]: E
+            - text: xamples,
+            - strong [ref=e327]: P
+            - text: ersona,
+            - strong [ref=e328]: O
+            - text: utput,
+            - strong [ref=e329]: T
+            - text: one
+      - generic [ref=e330]:
+        - tablist [ref=e333]:
+          - tab "JSON Schema" [ref=e334] [cursor=pointer]
+          - tab "Prompt Template" [ref=e337] [cursor=pointer]
+          - tab "Test & Preview" [ref=e340] [cursor=pointer]
+          - tab "Metrics Evaluation" [active] [selected] [ref=e343] [cursor=pointer]
+        - separator [ref=e347]
+        - generic [ref=e509]:
+          - heading "📊 Test Case Quality Metrics Evaluation" [level=6] [ref=e510]
+          - paragraph [ref=e511]: Evaluate generated test cases using DeepEval metrics including faithfulness, answer relevancy, contextual precision/recall, and hallucination detection.
+          - generic [ref=e513]:
+            - generic [ref=e514]:
+              - paragraph [ref=e515]:
+                - strong [ref=e516]: Select Test Case to Evaluate
+              - generic [ref=e518]:
+                - combobox [ref=e519] [cursor=pointer]:
+                  - emphasis [ref=e520]: "-- Choose a test case --"
+                - textbox [aria-hidden]
+                - group [aria-hidden]
+            - generic [ref=e521]:
+              - paragraph [ref=e522]:
+                - strong [ref=e523]: Select Metrics
+              - generic [ref=e524]:
+                - generic [ref=e525]: Metrics
+                - generic [ref=e526]:
+                  - combobox "Metrics" [ref=e527] [cursor=pointer]: faithfulness, answer relevancy, contextual precision, contextual recall, hallucination
+                  - textbox [aria-hidden]: faithfulness,answer_relevancy,contextual_precision,contextual_recall,hallucination
+                  - group [aria-hidden]:
+                    - generic: Metrics
+            - paragraph [ref=e528]:
+              - strong [ref=e529]: "Available:"
+              - text: 7 test cases
+            - button "Evaluate" [disabled]
+          - alert [ref=e530]:
+            - paragraph [ref=e535]: Run the "Complete RAG Pipeline" in the Test & Preview tab to generate test cases, then return here to evaluate their quality.

@@ -27,6 +27,10 @@ import {
   Select,
   MenuItem,
   ListSubheader,
+  Checkbox,
+  ListItemText,
+  OutlinedInput,
+  InputLabel,
 } from '@mui/material';
 import {
   Schema as SchemaIcon,
@@ -46,6 +50,7 @@ import {
   GetApp as ExportIcon,
   Assessment as AssessmentIcon,
 } from '@mui/icons-material';
+import { jsonrepair } from 'jsonrepair';
 
 function TabPanel({ children, value, index }) {
   return (
@@ -53,6 +58,35 @@ function TabPanel({ children, value, index }) {
       {value === index && children}
     </div>
   );
+}
+
+// Escapes quotes that appear inside JSON string values (common LLM output flaw) without touching real string boundaries
+function escapeStrayQuotesInJsonStrings(text) {
+  let result = '';
+  let inString = false;
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    if (char === '"' && text[i - 1] !== '\\') {
+      if (!inString) {
+        inString = true;
+        result += char;
+        continue;
+      }
+      let j = i + 1;
+      while (j < text.length && /\s/.test(text[j])) j++;
+      const nextChar = text[j];
+      const closesString = nextChar === undefined || ':,}]'.includes(nextChar);
+      if (closesString) {
+        inString = false;
+        result += char;
+      } else {
+        result += '\\"';
+      }
+    } else {
+      result += char;
+    }
+  }
+  return result;
 }
 
 const DEFAULT_JSON_SCHEMA = `{
@@ -330,6 +364,8 @@ function PromptSchemaManager() {
   const [metricsResult, setMetricsResult] = useState(null);
   const [metricsLoading, setMetricsLoading] = useState(false);
   const [selectedTestCase, setSelectedTestCase] = useState('');
+  const AVAILABLE_METRICS = ['faithfulness', 'answer_relevancy', 'contextual_precision', 'contextual_recall', 'hallucination'];
+  const [selectedMetrics, setSelectedMetrics] = useState(AVAILABLE_METRICS);
 
   // Validate JSON Schema
   const validateSchema = (schemaText) => {
@@ -511,6 +547,8 @@ ${testQuery}
         }
         
         if (rawText) {
+          // Strip reasoning-model <think> blocks (closed or truncated) left over from the raw text
+          rawText = rawText.replace(/<think>[\s\S]*?(<\/think>|$)/i, '').trim();
           console.log(`   Raw text length: ${rawText.length} chars`);
           
           let jsonMatch = rawText.match(/```json\s*([\s\S]*?)\s*```/);
@@ -549,12 +587,19 @@ ${testQuery}
             validationErrors.push('Warning: Response was incomplete or truncated - attempting recovery.');
           }
           
-          rawText = rawText
-            .replace(/\\"/g, '"')
-            .replace(/\\n/g, '\\n')
-            .replace(/[\r\n]+/g, ' ');
+          // Only collapse real newlines; JSON.parse already handles \" escaping natively
+          rawText = rawText.replace(/[\r\n]+/g, ' ');
           
-          validatedResponse = JSON.parse(rawText);
+          try {
+            validatedResponse = JSON.parse(rawText);
+          } catch (directParseError) {
+            try {
+              // Handles missing commas/colons, stray quotes, trailing commas, etc.
+              validatedResponse = JSON.parse(jsonrepair(rawText));
+            } catch (repairError) {
+              validatedResponse = JSON.parse(escapeStrayQuotesInJsonStrings(rawText));
+            }
+          }
           console.log('✅ Successfully parsed JSON from response');
         }
       } catch (e) {
@@ -992,6 +1037,8 @@ ${JSON.stringify(essentialTestCases, null, 2)}
 
         // Extract JSON from markdown code blocks if needed
         if (rawText) {
+          // Strip reasoning-model <think> blocks (closed or truncated) left over from the raw text
+          rawText = rawText.replace(/<think>[\s\S]*?(<\/think>|$)/i, '').trim();
           console.log(`   Raw text length: ${rawText.length} chars`);
 
           // Try markdown code block first
@@ -1035,13 +1082,19 @@ ${JSON.stringify(essentialTestCases, null, 2)}
             validationErrors.push('Warning: Response was incomplete or truncated - attempting recovery.');
           }
 
-          // Clean up escape sequences
-          rawText = rawText
-            .replace(/\\"/g, '"')  // Fix escaped quotes
-            .replace(/\\n/g, '\\n')  // Preserve \n in strings
-            .replace(/[\r\n]+/g, ' ');  // Replace actual newlines with spaces
+          // Only collapse real newlines; JSON.parse already handles \" escaping natively
+          rawText = rawText.replace(/[\r\n]+/g, ' ');  // Replace actual newlines with spaces
 
-          validatedResponse = JSON.parse(rawText);
+          try {
+            validatedResponse = JSON.parse(rawText);
+          } catch (directParseError) {
+            try {
+              // Handles missing commas/colons, stray quotes, trailing commas, etc.
+              validatedResponse = JSON.parse(jsonrepair(rawText));
+            } catch (repairError) {
+              validatedResponse = JSON.parse(escapeStrayQuotesInJsonStrings(rawText));
+            }
+          }
           console.log('✅ Successfully parsed JSON from response');
         }
       } catch (e) {
@@ -1647,12 +1700,15 @@ ${JSON.stringify(essentialTestCases, null, 2)}
   };
 
   // Evaluate test case quality metrics using DeepEval
-  const evaluateMetrics = async (testCase, context, userStory) => {
+  const evaluateMetrics = async (testCase, context, userStory, metrics) => {
     setMetricsLoading(true);
     setMetricsResult(null);
 
     try {
       console.log('📊 Evaluating test case metrics...');
+
+      // Use 'all' when every metric is selected to keep payload identical to pre-enhancement behavior
+      const metricParam = (!metrics || metrics.length === AVAILABLE_METRICS.length) ? 'all' : metrics.join(',');
 
       // Prepare evaluation payload
       const evalPayload = {
@@ -1660,7 +1716,7 @@ ${JSON.stringify(essentialTestCases, null, 2)}
         context: Array.isArray(context) ? context : [context || ''],
         output: JSON.stringify(testCase, null, 2),
         expected_output: testCase.testCaseTitle || 'Test case for quality evaluation',
-        metric: 'all'
+        metric: metricParam
       };
 
       console.log('📤 Sending to DeepEval:', evalPayload);
@@ -2927,6 +2983,33 @@ ${JSON.stringify(essentialTestCases, null, 2)}
                     </FormControl>
                   </Box>
 
+                  <Box sx={{ minWidth: 220 }}>
+                    <Typography variant="body2" sx={{ mb: 1 }}>
+                      <strong>Select Metrics</strong>
+                    </Typography>
+                    <FormControl fullWidth size="small">
+                      <InputLabel id="metrics-multiselect-label">Metrics</InputLabel>
+                      <Select
+                        labelId="metrics-multiselect-label"
+                        multiple
+                        value={selectedMetrics}
+                        onChange={(e) => {
+                          const { value } = e.target;
+                          setSelectedMetrics(typeof value === 'string' ? value.split(',') : value);
+                        }}
+                        input={<OutlinedInput label="Metrics" />}
+                        renderValue={(selected) => selected.map((m) => m.replace(/_/g, ' ')).join(', ')}
+                      >
+                        {AVAILABLE_METRICS.map((metric) => (
+                          <MenuItem key={metric} value={metric}>
+                            <Checkbox checked={selectedMetrics.indexOf(metric) > -1} />
+                            <ListItemText primary={metric.replace(/_/g, ' ')} />
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  </Box>
+
                   <Typography variant="body2" sx={{ minWidth: 120 }}>
                     <strong>Available:</strong>{' '}
                     {
@@ -2944,10 +3027,10 @@ ${JSON.stringify(essentialTestCases, null, 2)}
                         const { data } = JSON.parse(selectedTestCase);
                         const contextSource = llmRagResult?.existingTestCases?.map(tc => tc.testCaseTitle || tc.title).join(' | ') || '';
                         const query = llmRagResult?.originalQuery || testResult?.originalQuery || testQuery;
-                        evaluateMetrics(data, contextSource, query);
+                        evaluateMetrics(data, contextSource, query, selectedMetrics);
                       }
                     }}
-                    disabled={metricsLoading || !selectedTestCase}
+                    disabled={metricsLoading || !selectedTestCase || selectedMetrics.length === 0}
                   >
                     {metricsLoading ? 'Evaluating...' : 'Evaluate'}
                   </Button>

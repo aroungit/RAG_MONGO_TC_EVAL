@@ -1510,13 +1510,18 @@ app.post('/api/test-prompt', async (req, res) => {
       ],
       model: process.env.GROQ_RERANK_MODEL || 'llama-3.2-3b-preview',
       temperature: temperature,
-      max_tokens: Math.min(maxTokens, 8000)
+      max_tokens: Math.min(maxTokens, 16000),
+      // Reasoning models (e.g. qwen3) emit <think> blocks in content unless reasoning is hidden
+      reasoning_format: 'hidden'
     });
 
-    const aiResponse = completion.choices[0].message.content;
+    let aiResponse = completion.choices[0].message.content;
     const usage = completion.usage;
 
     console.log('✅ Groq response received');
+
+    // Strip any leftover <think>...</think> block (closed or truncated mid-thought)
+    aiResponse = aiResponse.replace(/<think>[\s\S]*?(<\/think>|$)/i, '').trim();
 
     // Calculate estimated cost (Groq pricing: $0.05/M input, $0.10/M output)
     const inputCost = (usage.prompt_tokens / 1000000) * 0.05;

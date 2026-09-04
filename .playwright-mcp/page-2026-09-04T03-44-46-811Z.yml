@@ -1,0 +1,151 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - button [ref=e6] [cursor=pointer]
+      - generic [ref=e11]: RAG Pipeline
+      - switch [ref=e15] [cursor=pointer]
+    - generic [ref=e19]:
+      - navigation [ref=e20]:
+        - list [ref=e21]:
+          - listitem [ref=e22]:
+            - button "Home" [ref=e23] [cursor=pointer]
+          - listitem [aria-hidden] [ref=e24]
+          - listitem [ref=e27]:
+            - paragraph [ref=e28]: Convert to JSON
+      - generic [ref=e29]: Upload and convert Excel files (Test Cases or User Stories)
+  - generic [ref=e31]:
+    - heading "Navigation" [level=6] [ref=e34]
+    - separator [ref=e35]
+    - list [ref=e36]:
+      - listitem [ref=e37]:
+        - button "Convert to JSON Upload and convert Excel files (Test Cases or User Stories)" [ref=e38] [cursor=pointer]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: Convert to JSON
+            - paragraph [ref=e47]: Upload and convert Excel files (Test Cases or User Stories)
+      - listitem [ref=e48]:
+        - button "Embeddings & Store Create and manage embeddings" [ref=e49] [cursor=pointer]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: Embeddings & Store
+            - paragraph [ref=e58]: Create and manage embeddings
+      - listitem [ref=e59]:
+        - button "Query Preprocessing Transform & expand queries" [ref=e60] [cursor=pointer]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: Query Preprocessing
+            - paragraph [ref=e70]: Transform & expand queries
+      - listitem [ref=e71]:
+        - button "Vector Search Semantic vector search" [ref=e72] [cursor=pointer]:
+          - generic [ref=e79]:
+            - generic [ref=e80]: Vector Search
+            - paragraph [ref=e81]: Semantic vector search
+      - listitem [ref=e82]:
+        - button "BM25 Search Keyword-based search" [ref=e83] [cursor=pointer]:
+          - generic [ref=e90]:
+            - generic [ref=e91]: BM25 Search
+            - paragraph [ref=e92]: Keyword-based search
+      - listitem [ref=e93]:
+        - button "Hybrid Search Combined BM25 + Vector" [ref=e94] [cursor=pointer]:
+          - generic [ref=e101]:
+            - generic [ref=e102]: Hybrid Search
+            - paragraph [ref=e103]: Combined BM25 + Vector
+      - listitem [ref=e104]:
+        - button "Score Fusion BM25+Vector fusion reranking" [ref=e105] [cursor=pointer]:
+          - generic [ref=e112]:
+            - generic [ref=e113]: Score Fusion
+            - paragraph [ref=e114]: BM25+Vector fusion reranking
+      - listitem [ref=e115]:
+        - button "Summarize & Dedup AI summarization & deduplication" [ref=e116] [cursor=pointer]:
+          - generic [ref=e123]:
+            - generic [ref=e124]: Summarize & Dedup
+            - paragraph [ref=e125]: AI summarization & deduplication
+      - listitem [ref=e126]:
+        - button "Prompt & Schema Configure prompt templates & JSON schemas" [ref=e127] [cursor=pointer]:
+          - generic [ref=e134]:
+            - generic [ref=e135]: Prompt & Schema
+            - paragraph [ref=e136]: Configure prompt templates & JSON schemas
+      - listitem [ref=e137]:
+        - button "Settings Configure environment" [ref=e138] [cursor=pointer]:
+          - generic [ref=e145]:
+            - generic [ref=e146]: Settings
+            - paragraph [ref=e147]: Configure environment
+    - separator [ref=e148]
+    - generic [ref=e149]: RAG Demo v1.2Enterprise Edition
+  - main [ref=e153]:
+    - generic [ref=e158]:
+      - generic [ref=e159]:
+        - heading "Convert Excel to JSON" [level=4] [ref=e160]
+        - paragraph [ref=e163]: Upload Excel files (Test Cases or User Stories) and convert them to JSON format for processing.
+      - generic [ref=e165]:
+        - generic [ref=e167]:
+          - img [aria-hidden] [ref=e169]:
+            - generic [ref=e171]: "1"
+          - generic [ref=e172]: Select File
+        - generic [ref=e177]:
+          - img [aria-hidden] [ref=e179]:
+            - generic [ref=e181]: "2"
+          - generic [ref=e182]: Configure
+        - generic [ref=e187]:
+          - img [aria-hidden] [ref=e189]:
+            - generic [ref=e191]: "3"
+          - generic [ref=e192]: Convert
+      - generic [ref=e194]:
+        - generic [ref=e196]:
+          - generic [ref=e201]:
+            - generic [ref=e202]: File Upload
+            - generic [ref=e203]: Select data type and configure your Excel file
+          - generic [ref=e204]:
+            - generic [ref=e205]:
+              - generic [ref=e206]: Data Type
+              - generic [ref=e207]:
+                - combobox "Data Type TC Test Cases" [ref=e208] [cursor=pointer]:
+                  - generic [ref=e209]:
+                    - generic [ref=e210]: TC
+                    - text: Test Cases
+                - textbox [aria-hidden]: testcases
+                - group [aria-hidden]:
+                  - generic: Data Type
+            - button [ref=e214] [cursor=pointer]
+            - generic [ref=e218]:
+              - generic [ref=e219]: Sheet Name
+              - generic [ref=e220]:
+                - textbox "Sheet Name" [ref=e221]: testcases
+                - group [aria-hidden]:
+                  - generic: Sheet Name
+              - paragraph [ref=e222]: "Name of the Excel sheet to convert (default: testcases)"
+            - generic [ref=e223]:
+              - button "Convert Test Cases" [disabled]
+              - button "Reset" [ref=e224] [cursor=pointer]
+        - generic [ref=e226]:
+          - generic [ref=e227]: Expected Test Cases Columns
+          - generic [ref=e233]:
+            - paragraph [ref=e234]: "Your Excel file should contain these columns:"
+            - list [ref=e235]:
+              - listitem [ref=e236]:
+                - generic [ref=e239]: Module
+              - listitem [ref=e241]:
+                - generic [ref=e244]: Test ID
+              - listitem [ref=e246]:
+                - generic [ref=e249]: Pre-Requisites
+              - listitem [ref=e251]:
+                - generic [ref=e254]: Test Title
+              - listitem [ref=e256]:
+                - generic [ref=e259]: Test Case Description
+              - listitem [ref=e261]:
+                - generic [ref=e264]: Test Steps
+              - listitem [ref=e266]:
+                - generic [ref=e269]: Expected Results
+              - listitem [ref=e271]:
+                - generic [ref=e274]: Automation/Manual
+              - listitem [ref=e276]:
+                - generic [ref=e279]: Priority
+              - listitem [ref=e281]:
+                - generic [ref=e284]: Created By
+              - listitem [ref=e286]:
+                - generic [ref=e289]: Created Date
+              - listitem [ref=e291]:
+                - generic [ref=e294]: Last modified date
+              - listitem [ref=e296]:
+                - generic [ref=e299]: Risk
+              - listitem [ref=e301]:
+                - generic [ref=e304]: Version
+              - listitem [ref=e306]:
+                - generic [ref=e309]: Type

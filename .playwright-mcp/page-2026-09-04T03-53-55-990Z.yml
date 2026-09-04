@@ -1,0 +1,97 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - button [ref=e6] [cursor=pointer]
+      - generic [ref=e11]: RAG Pipeline
+      - switch [ref=e15] [cursor=pointer]
+    - generic [ref=e19]:
+      - navigation [ref=e20]:
+        - list [ref=e21]:
+          - listitem [ref=e22]:
+            - button "Home" [ref=e746] [cursor=pointer]
+          - listitem [aria-hidden] [ref=e24]
+          - listitem [ref=e27]:
+            - paragraph [ref=e28]: BM25 Search
+      - generic [ref=e29]: Keyword-based search
+  - generic [ref=e387]:
+    - heading "Navigation" [level=6] [ref=e747]
+    - separator [ref=e391]
+    - list [ref=e392]:
+      - listitem [ref=e393]:
+        - button "Convert to JSON Upload and convert Excel files (Test Cases or User Stories)" [ref=e748] [cursor=pointer]:
+          - generic [ref=e401]:
+            - generic [ref=e402]: Convert to JSON
+            - paragraph [ref=e403]: Upload and convert Excel files (Test Cases or User Stories)
+      - listitem [ref=e404]:
+        - button "Embeddings & Store Create and manage embeddings" [ref=e749] [cursor=pointer]:
+          - generic [ref=e412]:
+            - generic [ref=e413]: Embeddings & Store
+            - paragraph [ref=e414]: Create and manage embeddings
+      - listitem [ref=e415]:
+        - button "Query Preprocessing Transform & expand queries" [ref=e750] [cursor=pointer]:
+          - generic [ref=e424]:
+            - generic [ref=e425]: Query Preprocessing
+            - paragraph [ref=e426]: Transform & expand queries
+      - listitem [ref=e427]:
+        - button "Vector Search Semantic vector search" [ref=e751] [cursor=pointer]:
+          - generic [ref=e435]:
+            - generic [ref=e436]: Vector Search
+            - paragraph [ref=e437]: Semantic vector search
+      - listitem [ref=e438]:
+        - button "BM25 Search Keyword-based search" [active] [ref=e752] [cursor=pointer]:
+          - generic [ref=e446]:
+            - generic [ref=e447]: BM25 Search
+            - paragraph [ref=e448]: Keyword-based search
+      - listitem [ref=e449]:
+        - button "Hybrid Search Combined BM25 + Vector" [ref=e753] [cursor=pointer]:
+          - generic [ref=e457]:
+            - generic [ref=e458]: Hybrid Search
+            - paragraph [ref=e459]: Combined BM25 + Vector
+      - listitem [ref=e460]:
+        - button "Score Fusion BM25+Vector fusion reranking" [ref=e754] [cursor=pointer]:
+          - generic [ref=e468]:
+            - generic [ref=e469]: Score Fusion
+            - paragraph [ref=e470]: BM25+Vector fusion reranking
+      - listitem [ref=e471]:
+        - button "Summarize & Dedup AI summarization & deduplication" [ref=e755] [cursor=pointer]:
+          - generic [ref=e479]:
+            - generic [ref=e480]: Summarize & Dedup
+            - paragraph [ref=e481]: AI summarization & deduplication
+      - listitem [ref=e482]:
+        - button "Prompt & Schema Configure prompt templates & JSON schemas" [ref=e756] [cursor=pointer]:
+          - generic [ref=e490]:
+            - generic [ref=e491]: Prompt & Schema
+            - paragraph [ref=e492]: Configure prompt templates & JSON schemas
+      - listitem [ref=e493]:
+        - button "Settings Configure environment" [ref=e757] [cursor=pointer]:
+          - generic [ref=e501]:
+            - generic [ref=e502]: Settings
+            - paragraph [ref=e503]: Configure environment
+    - separator [ref=e504]
+    - generic [ref=e505]: RAG Demo v1.2Enterprise Edition
+  - main [ref=e153]:
+    - generic [ref=e767]:
+      - heading "BM25 Keyword Search" [level=1] [ref=e771]
+      - paragraph [ref=e772]: Fast keyword-based search using BM25 algorithm. Best for exact matches, IDs, and specific terms.
+      - generic [ref=e773]:
+        - generic [ref=e775]:
+          - generic [ref=e776]: Search Query
+          - generic [ref=e777]:
+            - textbox "Search Query" [ref=e778]:
+              - /placeholder: e.g., merge UHID, TC_027, registration tests...
+              - text: Share Diagnostic Reports with Patients via WhatsApp
+            - group [aria-hidden]:
+              - generic: Search Query
+        - generic [ref=e780]:
+          - generic [ref=e781]: Results Limit
+          - generic [ref=e782]:
+            - spinbutton "Results Limit" [ref=e783]: "10"
+            - group [aria-hidden]:
+              - generic: Results Limit
+        - button [ref=e785] [cursor=pointer]
+      - generic [ref=e789]:
+        - button [ref=e791] [cursor=pointer]
+        - generic: Module
+        - generic: Priority
+        - generic: Risk
+        - generic: Type
