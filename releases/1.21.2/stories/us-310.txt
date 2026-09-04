@@ -1,0 +1,28 @@
+User Story: HC-310 — Doctor Prescription Verification Workflow
+
+Summary:
+As a doctor, I want an automated prescription verification system so that I can review, approve, or modify prescriptions digitally before they are sent to the pharmacy.
+
+Description:
+The system should enable doctors to view medication details prescribed by other physicians or generated automatically from patient diagnosis. It should allow verification of dosage, potential interactions, and duplicate drugs. Once verified, prescriptions should automatically sync with the pharmacy module for patient dispensing.
+
+Epic:
+Clinical Workflows – Prescription Management
+
+Acceptance Criteria:
+
+Given a doctor with access to a patient record,
+When they open the prescription module,
+Then all pending prescriptions should be displayed for verification.
+
+Given a prescription with errors (dosage conflict or duplicate medicine),
+When the doctor reviews it,
+Then the system should highlight issues and provide AI-based recommendations for correction.
+
+Given a verified prescription,
+When it is approved,
+Then it should automatically update the pharmacy dispensing queue.
+
+Priority: P1
+Risk: Medium
+Status: To Do

@@ -1,0 +1,31 @@
+{
+  "name": "rag-mongo-demo",
+  "version": "1.0.0",
+  "description": "Demo project for storing and retrieving testcases with MongoDB Atlas Vector Search",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd client && npm start",
+    "server": "node server/index.js",
+    "build": "cd client && npm run build"
+  },
+  "dependencies": {
+    "@huggingface/inference": "^4.11.1",
+    "@mistralai/mistralai": "^0.4.0",
+    "axios": "^1.12.2",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "groq-sdk": "^0.5.0",
+    "mongodb": "^6.8.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.15.2",
+    "openai": "^4.104.0",
+    "p-limit": "^7.1.1",
+    "sequelize": "^6.37.7",
+    "xlsx": "^0.18.5"
+  }
+}

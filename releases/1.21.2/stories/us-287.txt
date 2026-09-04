@@ -1,0 +1,22 @@
+User Story: HC-287 – Dynamic Queue List of AHC (Enhanced Real-Time Filtering)
+
+Summary:
+As a ward doctor, I want the dynamic queue list of AHC to automatically refresh every 30 seconds and support filtering by patient priority (emergency vs routine) so that I can attend to high-priority patients first.
+
+Description:
+The existing queue currently loads patient lists only once when the dashboard is opened. The new enhancement adds real-time auto-refresh logic and introduces dynamic filters for patient priority and status (“Waiting”, “Under Examination”, “Discharged”). The update ensures that queue order and color coding change instantly when the patient status changes in the system.
+
+Epic: Wards – Doctors Management
+Impact Area: Doctor Dashboard / Patient Queue UI
+
+Acceptance Criteria:
+
+Given the doctor dashboard is open, when a patient status changes in the system, then the queue list should update automatically within 30 seconds.
+
+Given the doctor wants to view only critical patients, when the “Emergency” filter is applied, then only patients with critical priority should be visible.
+
+Given the queue is auto-refreshed, then the UI should retain scroll position and active filters without manual reload.
+
+Priority: P1
+Risk: Medium
+Status: In Progress (Functional Change Pending)

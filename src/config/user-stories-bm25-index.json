@@ -1,0 +1,62 @@
+{
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "key": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "storyId": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "summary": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "description": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "acceptanceCriteria": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "projectName": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "status": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "priority": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "assignee": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "reporter": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "epic": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "storyPoints": {
+        "type": "number"
+      },
+      "components": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "labels": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      }
+    }
+  }
+}

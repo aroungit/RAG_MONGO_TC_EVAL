@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+client/node_modules/
+
+# Environment variables
+.env
+
+# Build files
+client/build/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temp files
+temp-*.js
+server/temp-*.js
+
+# Data files (optional - uncomment if you want to include them)
+# uploads/
+# src/data/*.xlsx
+# src/data/*.json
+
+# Test coverage
+coverage/

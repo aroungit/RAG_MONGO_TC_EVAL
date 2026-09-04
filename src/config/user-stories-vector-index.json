@@ -1,0 +1,38 @@
+{
+  "fields": [
+    {
+      "type": "vector",
+      "path": "embedding",
+      "numDimensions": 1024,
+      "similarity": "cosine"
+    },
+    {
+      "type": "filter", 
+      "path": "jiraMetadata.projectKey"
+    },
+    {
+      "type": "filter",
+      "path": "status.name"
+    },
+    {
+      "type": "filter",
+      "path": "priority.name"
+    },
+    {
+      "type": "filter",
+      "path": "assignee.displayName"
+    },
+    {
+      "type": "filter",
+      "path": "components"
+    },
+    {
+      "type": "filter",
+      "path": "labels"
+    },
+    {
+      "type": "filter",
+      "path": "fixVersions"
+    }
+  ]
+}

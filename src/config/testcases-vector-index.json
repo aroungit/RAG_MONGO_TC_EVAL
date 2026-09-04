@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "type": "vector",
+      "path": "embedding",
+      "numDimensions": 1024,
+      "similarity": "cosine"
+    },
+    {
+      "type": "filter",
+      "path": "id"
+    },
+    {
+      "type": "filter",
+      "path": "module"
+    },
+    {
+      "type": "filter",
+      "path": "title"
+    },
+    {
+      "type": "filter",
+      "path": "description"
+    },
+    {
+      "type": "filter",
+      "path": "steps"
+    },
+    {
+      "type": "filter",
+      "path": "expectedResults"
+    }
+  ]
+}

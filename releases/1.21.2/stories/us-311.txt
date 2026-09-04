@@ -1,0 +1,28 @@
+User Story: HC-311 — Automated Insurance Pre-Authorization for Radiology Tests
+
+Summary:
+As a billing coordinator, I want the system to automatically verify a patient’s insurance coverage and pre-authorize radiology tests before scheduling, so that delays and manual verification errors can be reduced.
+
+Description:
+Before scheduling any CT, MRI, or ultrasound procedure, the system should trigger an API call to the insurance provider to check if the procedure is covered under the patient’s plan. If authorization is required, it should initiate the pre-authorization process automatically and store the approval ID in the patient record.
+
+Epic:
+Financial & Billing Workflows – Insurance Automation
+
+Acceptance Criteria:
+
+Given a patient is scheduled for a radiology test,
+When the billing coordinator selects “Schedule Test”,
+Then the system should verify insurance eligibility via API.
+
+Given the test requires pre-authorization,
+When the request is sent,
+Then the system should store the authorization ID and approval date in the billing record.
+
+Given a test is not covered,
+When the result is received,
+Then the system should notify both the coordinator and patient, and offer alternative payment options.
+
+Priority: P1
+Risk: Medium
+Status: In Progress
